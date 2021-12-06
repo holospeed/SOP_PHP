@@ -26,8 +26,6 @@ namespace SOP_FRONT
     public partial class AuthScreen : Page
     {
 
-        // String URL = "http://aries.ektf.hu/~ksanyi/restapi/v1/";
-        //  String ROUTE = "index.php";
 
         string URL = Constans.URL;
         string ROUTE = "auth.php";

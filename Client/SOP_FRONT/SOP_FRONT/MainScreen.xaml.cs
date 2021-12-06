@@ -26,37 +26,6 @@ namespace SOP_FRONT
 
         string URL  = Constans.URL;
        
-
-        private static void WebRequest(string URL, string jwt)
-        {
-            string WEBSERVICE_URL = URL;
-            try
-            {
-
-                var webRequest = System.Net.WebRequest.Create(WEBSERVICE_URL);
-                if (webRequest != null)
-                {
-                    webRequest.Method = "GET";
-                    webRequest.Timeout = 12000;
-                    webRequest.ContentType = "application/json";
-                    webRequest.Headers.Add("Authorization", "Barer " + jwt);
-
-                    using (System.IO.Stream s = webRequest.GetResponse().GetResponseStream())
-                    {
-                        using (System.IO.StreamReader sr = new System.IO.StreamReader(s))
-                        {
-                            var jsonResponse = sr.ReadToEnd();
-                            Console.WriteLine(String.Format("Response: {0}", jsonResponse));
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
-            }
-        }
-
         private static GetBody GetMethod(string URL, string jwt)
         {
             var client = new RestClient(URL);
